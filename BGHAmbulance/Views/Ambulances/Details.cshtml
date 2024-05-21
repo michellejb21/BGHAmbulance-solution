@@ -1,0 +1,74 @@
+﻿@model BGHAmbulance.Ambulance
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ambulance</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AmbName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmbName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmbNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmbNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmbMake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmbMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmbModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmbModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmbDriver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmbDriver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmbUpadtedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmbUpadtedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmbUpdatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmbUpdatedOn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

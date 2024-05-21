@@ -1,0 +1,62 @@
+﻿@model IEnumerable<BGHAmbulance.Ambulance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AmbName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmbNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmbMake)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmbModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmbDriver)
+        </th>
+        <th>
+           
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmbName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmbNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmbMake)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmbModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmbDriver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmbUpadtedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmbUpdatedOn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

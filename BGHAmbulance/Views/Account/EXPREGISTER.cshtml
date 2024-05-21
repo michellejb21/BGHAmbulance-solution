@@ -1,0 +1,63 @@
+﻿import java.util.List;
+import java.util.Scanner;
+
+public class AccountController 
+{
+    private UserManagementSystem userManagementSystem;
+
+    public AccountController() 
+{
+        userManagementSystem = new UserManagementSystem();
+
+        // Adding users
+        userManagementSystem.addUser("admin", "adminpassword");
+        userManagementSystem.addUser("bgh", "bghpassword");
+        userManagementSystem.addUser("driver", "driverpassword");
+        userManagementSystem.addUser("user", "userpassword");
+
+        // Adding roles
+        userManagementSystem.addRoleToUser("admin", "admin");
+        userManagementSystem.addRoleToUser("bgh", "bgh");
+        userManagementSystem.addRoleToUser("driver", "driver");
+        userManagementSystem.addRoleToUser("user", "user");
+    }
+    public void register(RegisterViewModel model) 
+{
+        if (model != null && model.getEmail() != null && model.getPassword() != null && model.getConfirmPassword() != null) 
+{
+            // if the email already exist
+            if (userManagementSystem.getUsers().containsKey(model.getEmail())) 
+{
+                // Email already exist
+                return;
+            }
+
+            // Add user to the user system
+            userManagementSystem.addUser(model.getEmail(), model.getPassword());
+
+            // Assign role based on user input
+            switch (model.getSelectedRole()) {
+                case "Admin":
+                    userManagementSystem.addRoleToUser(model.getEmail(), "admin");
+                    break;
+                case "BGH":
+                    userManagementSystem.addRoleToUser(model.getEmail(), "bgh");
+                    break;
+                case "Driver":
+                    userManagementSystem.addRoleToUser(model.getEmail(), "driver");
+                    break;
+                case "User":
+                    userManagementSystem.addRoleToUser(model.getEmail(), "user");
+                    break;
+                default:
+                    break;
+            }
+
+            // redirect to the page after registration
+            return;
+        }
+
+        // if registration failed return an error
+        return;
+    }
+}
